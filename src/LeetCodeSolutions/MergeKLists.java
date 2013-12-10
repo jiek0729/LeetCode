@@ -2,7 +2,7 @@ package LeetCodeSolutions;
 
 import java.util.*;
 
-public class MergeKList {
+public class MergeKLists {
 	public ListNode mergeKLists(ArrayList<ListNode> lists) {
 		// Create dummy head list node.
         ListNode head = new ListNode(0);
@@ -17,7 +17,9 @@ public class MergeKList {
         
         // Initializes min heap with lists.
         for(ListNode node : lists){
-            queue.add(node);
+        	if(node != null){
+        		queue.add(node);
+        	}
         }
         
         ListNode cur = head;
