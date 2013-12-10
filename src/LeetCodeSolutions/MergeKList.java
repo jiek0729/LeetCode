@@ -2,7 +2,7 @@ package LeetCodeSolutions;
 
 import java.util.*;
 
-public class Test {
+public class MergeKList {
 	public ListNode mergeKLists(ArrayList<ListNode> lists) {
 		System.out.println("start");
 		
@@ -40,10 +40,4 @@ public class Test {
         
         return head.next;
     }
-	
-	public static void main(String[] args){
-		Test test = new Test();
-		
-		test.mergeKLists(new ArrayList<ListNode>());
-	}
 }
