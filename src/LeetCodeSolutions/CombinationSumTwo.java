@@ -94,17 +94,5 @@ public class CombinationSumTwo {
     	CombinationSumTwo cst = new CombinationSumTwo();
     	
     	ArrayList<ArrayList<Integer>> result = cst.combinationSum2(num, target);
-    	
-    	for(int i = 0; i < result.size(); i++){
-    		printList(result.get(i));
-    	}
-    }
-    
-    public static <E> void printList(List<E> list){
-    	for(int i = 0; i < list.size(); i++){
-    		System.out.print(list.get(i));
-    	}
-    	
-    	System.out.println();
     }
 }

@@ -54,9 +54,5 @@ public class Combinations {
     	Combinations c = new Combinations();
     	
     	ArrayList<ArrayList<Integer>> result = c.combine(4, 2);
-    	
-    	for(ArrayList<Integer> l : result){
-    		CombinationSumTwo.printList(l);
-    	}
     }
 }
