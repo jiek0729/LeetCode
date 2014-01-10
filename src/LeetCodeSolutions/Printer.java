@@ -11,4 +11,11 @@ public class Printer {
     	
     	System.out.println();
     }
+    
+    public static void printCharArray(char[] chars){
+    	for(int i = 0; i < chars.length; i++){
+    		System.out.print(chars[i] + " ");
+    	}
+    	System.out.println();
+    }
 }

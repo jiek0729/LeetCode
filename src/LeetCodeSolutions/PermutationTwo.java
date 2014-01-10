@@ -1,40 +1,49 @@
 package LeetCodeSolutions;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class PermutationTwo {
 	public ArrayList<ArrayList<Integer>> permuteUnique(int[] num) {
-        return permuteUnique(num, 0);
+        ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+        permuteUnique(num, 0, num.length, result);
+        
+        return result;
     }
     
-    private ArrayList<ArrayList<Integer>> permuteUnique(int[] num, int index){
-        ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
-        
-        if(index == num.length){
-            result.add(new ArrayList<Integer>());
-            return result;
+    private void permuteUnique(int[] num, int s, int e, ArrayList<ArrayList<Integer>> result){
+        if(s == e){
+            ArrayList<Integer> list = new ArrayList<Integer>();
+            for(int i = 0; i < num.length; i++){
+                list.add(num[i]);
+            }
+            
+            result.add(list);
         }
         
-        ArrayList<ArrayList<Integer>> sub = permuteUnique(num, index + 1);
-        
-        for(ArrayList<Integer> base : sub){
-            for(int i = 0; i <= base.size(); i++){
-                if(i == base.size() || (i < base.size() && num[index] != base.get(i))){
-                    result.add(insert(base, num[index], i));
-                }
+        for(int i = s; i < e; i++){
+            if(!noSwap(num, s, i)){
+                swap(num, s, i);
+                permuteUnique(num, s + 1, e, result);
+                swap(num, s, i);
             }
         }
-        
-        return result;
     }
     
-    private ArrayList<Integer> insert(ArrayList<Integer> list, int num, int index){
-        ArrayList<Integer> result = new ArrayList<Integer>();
-        
-        result.addAll(list);
-        result.add(index, num);
-        
-        return result;
+    private void swap(int[] num, int index1, int index2){
+        int temp = num[index1];
+        num[index1] = num[index2];
+        num[index2] = temp;
+    }
+    
+    private boolean noSwap(int[] num, int s, int e){
+    	for(int i = s; i < e; i++){
+    		if(num[i] == num[s]){
+    			return true;
+    		}
+    	}
+    	
+    	return false;
     }
     
     public static void main(String[] args){
