@@ -4,9 +4,9 @@ import java.util.List;
 
 public class Printer {
 
-    public static <E> void printList(List<E> list){
-    	for(int i = 0; i < list.size(); i++){
-    		System.out.print(list.get(i));
+    public static <E> void printList(Iterable<E> list){
+    	for(E item : list){
+    		System.out.print(item + " ");
     	}
     	
     	System.out.println();
